@@ -24,7 +24,7 @@ function App() {
     {
       title: "Dune",
       author: "Frank Herbert",
-      rating: 3,
+      rating: 1,
       pageCount: 900,
       imageUrl: "https://images.cdn2.buscalibre.com/fit-in/360x360/0d/73/0d739e6e0e837d7637f97f9aad3639b4.jpg",
       available: true,
