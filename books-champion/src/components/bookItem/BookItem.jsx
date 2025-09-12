@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Badge, Card, Button } from "react-bootstrap";
+import { Star, StarFill } from "react-bootstrap-icons";
 
 const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSelectBook }) => {
   // const [newTitle, setNewTitle] = useState(title);
@@ -8,22 +9,37 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSel
     // setNewTitle("Actualizado");
     // console.log(newTitle);
     onSelectBook(title)
-    
   };
-
   // console.log("BookItem evaluado por React");
 
+  const starRating = (rating) => {
+    return (
+      <>
+        {Array.from({ length: 5 }, (_, i) =>
+          i < rating ? (
+            <StarFill key={i} color="gold" size={20} />
+          ) : (
+            <Star key={i} color="gold" size={20} />
+          )
+        )}
+      </>
+
+    )
+  };
+
+
+
   return (
-    <Card style={{ width: '22rem' }} className="mx-3">
-      <Card.Img 
-      height={400}
-      variant="top" 
-      alt="Image not found"
-      src={imageUrl !== "" ? imageUrl : "https://images.pexels.com/photos/9247610/pexels-photo-9247610.jpeg"} 
+    <Card style={{ width: '22rem' }} className="mx-3 mt-4">
+      <Card.Img
+        height={400}
+        variant="top"
+        alt="Image not found"
+        src={imageUrl !== "" ? imageUrl : "https://images.pexels.com/photos/9247610/pexels-photo-9247610.jpeg"}
       />
       <Card.Body>
         <div className="mb-2">
-          {available ? 
+          {available ?
             <Badge bg="success">Disponible</Badge>
             :
             <Badge bg="danger">Reservado</Badge>
@@ -31,7 +47,7 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSel
         </div>
         <Card.Title>{title}</Card.Title>
         <Card.Subtitle>{author}</Card.Subtitle>
-        <div>{rating} estrella{rating > 1 ? "s" : ""}</div>
+        <div>{starRating(rating)}</div>
         <p>{pageCount} páginas</p>
         <Button onClick={handleClick}>
           Seleccionar libro

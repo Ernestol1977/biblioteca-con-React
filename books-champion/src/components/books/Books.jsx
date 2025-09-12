@@ -16,12 +16,12 @@ const Books = ({ books }) => {
   return (
     <>
       <BookSearch onSearch = {setSearchBook}/>
-      <div className="m-3">
-        <h5>El libro seleccionado es: <spam className="text-primary fw-bold">{selectedBook}</spam></h5>
+      <div className="m-2">
+        {selectedBook && <h5>El libro seleccionado es: <spam className="text-primary fw-bold">{selectedBook}</spam></h5>}
       </div>
       <div className="d-flex justify-content-center flex-wrap">
         { filteredBooks.length > 0 ? filteredBooks.map((book) => (
-          <BookItem
+          <BookItem 
             title={book.title}
             author={book.author}
             rating={book.rating}
