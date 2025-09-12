@@ -33,7 +33,7 @@ const NewBook = ({ onBookAdded }) => {
   const handleAvailableChange = (event) => {
     setAvailable(event.target.checked)
   };
-  
+
   const handleAddBook = (event) => {
     event.preventDefault();
 

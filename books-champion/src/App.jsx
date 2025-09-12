@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Books from './components/books/Books';
 import NewBook from './components/newBook/NewBook';
 
@@ -37,6 +38,8 @@ function App() {
       available: true,
     },
   ];
+  
+  const [bookList, setBookList] = useState(books);
 
   const handleBookAdded = (enteredBook) => {
     const bookData2 = {
@@ -44,14 +47,17 @@ function App() {
       ...enteredBook
     };
     console.log(bookData2);
+
+    setBookList(prevBookList => [bookData2, ...prevBookList])
   };
 
+    
   return (
     <div className='d-flex flex-column align-items-center'>
       <h2>Books Champion App</h2>
       <p>Quiero leer libros!</p>
       <NewBook onBookAdded={handleBookAdded} />
-      <Books books={books} />
+      <Books books={bookList} />
     </div>
   )
 }

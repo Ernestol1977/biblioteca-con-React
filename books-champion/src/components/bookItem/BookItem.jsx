@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Badge, Card, Button } from "react-bootstrap";
 
-const BookItem = ({ title, author, rating, pageCount, imageUrl, available, selectBook }) => {
+const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSelectBook }) => {
   // const [newTitle, setNewTitle] = useState(title);
 
   const handleClick = () => {
     // setNewTitle("Actualizado");
-    selectBook(title)
+    // console.log(newTitle);
+    onSelectBook(title)
     
   };
 
@@ -33,7 +34,7 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, selec
         <div>{rating} estrella{rating > 1 ? "s" : ""}</div>
         <p>{pageCount} páginas</p>
         <Button onClick={handleClick}>
-          Selccionar libro
+          Seleccionar libro
         </Button>
       </Card.Body>
     </Card>
