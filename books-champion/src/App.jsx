@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Books from './components/books/Books';
-import NewBook from './components/newBook/NewBook';
+import Books from './components/library/books/Books';
+import NewBook from './components/library/newBook/NewBook';
+import Login from './components/auth/Login';
 
 function App() {
 
@@ -54,10 +55,11 @@ function App() {
     
   return (
     <div className='d-flex flex-column align-items-center'>
-      <h2>Books Champion App</h2>
+      <Login />
+      {/* <h2>Books Champion App</h2>
       <p>Quiero leer libros!</p>
       <NewBook onBookAdded={handleBookAdded} />
-      <Books books={bookList} />
+      <Books books={bookList} /> */}
     </div>
   )
 }
