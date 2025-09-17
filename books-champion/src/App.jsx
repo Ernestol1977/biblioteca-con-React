@@ -55,11 +55,11 @@ function App() {
     
   return (
     <div className='d-flex flex-column align-items-center'>
-      <Login />
-      {/* <h2>Books Champion App</h2>
+      {/* <Login /> */}
+      <h2>Books Champion App</h2>
       <p>Quiero leer libros!</p>
       <NewBook onBookAdded={handleBookAdded} />
-      <Books books={bookList} /> */}
+      <Books books={bookList} />
     </div>
   )
 }

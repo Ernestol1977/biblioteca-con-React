@@ -10,6 +10,13 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSel
     // console.log(newTitle);
     onSelectBook(title)
   };
+
+  const handleDeleteBook = (  ) => {
+    return(
+      console.log(title)
+    )
+  };
+
   // console.log("BookItem evaluado por React");
 
   const starRating = (rating) => {
@@ -49,9 +56,10 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSel
         <Card.Subtitle>{author}</Card.Subtitle>
         <div>{starRating(rating)}</div>
         <p>{pageCount} páginas</p>
-        <Button onClick={handleClick}>
-          Seleccionar libro
-        </Button>
+        <div style={ {display: "flex", justifyContent: "center", gap: "2rem"} }>
+          <Button onClick={handleClick}>Seleccionar libro</Button> 
+          <Button onClick={handleDeleteBook} variant="outline-danger">Borrar libro</Button>
+        </div>
       </Card.Body>
     </Card>
   )
