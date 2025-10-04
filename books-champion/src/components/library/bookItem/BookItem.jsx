@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Badge, Card, Button } from "react-bootstrap";
 import { Star, StarFill } from "react-bootstrap-icons";
 
@@ -8,11 +7,24 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSel
   const handleClick = () => {
     // setNewTitle("Actualizado");
     // console.log(newTitle);
-    onSelectBook(title)
+    // nSelectBook(title)
+    navigate(`${id}`, {
+      state: {
+        book: {
+          title,
+          author,
+          rating,
+          pageCount,
+          imageUrl,
+          summary,
+          available,
+        },
+      },
+    });
   };
 
-  const handleDeleteBook = (  ) => {
-    return(
+  const handleDeleteBook = () => {
+    return (
       console.log(title)
     )
   };
@@ -56,8 +68,8 @@ const BookItem = ({ title, author, rating, pageCount, imageUrl, available, onSel
         <Card.Subtitle>{author}</Card.Subtitle>
         <div>{starRating(rating)}</div>
         <p>{pageCount} páginas</p>
-        <div style={ {display: "flex", justifyContent: "center", gap: "2rem"} }>
-          <Button onClick={handleClick}>Seleccionar libro</Button> 
+        <div style={{ display: "flex", justifyContent: "center", gap: "2rem" }}>
+          <Button onClick={handleClick}>Seleccionar libro</Button>
           <Button onClick={handleDeleteBook} variant="outline-danger">Borrar libro</Button>
         </div>
       </Card.Body>

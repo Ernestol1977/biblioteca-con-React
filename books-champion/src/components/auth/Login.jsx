@@ -23,16 +23,18 @@ const Login = () => {
         setErrors({ ...errors, password: false });
     };
 
-    const handleSubmit = (event) => {
+    const handleLogin = (event) => {
         event.preventDefault();
+
         if (!emailRef.current.value.length) {
             setErrors({ ...errors, email: true });
             alert("¡Email vacio!");
             emailRef.current.focus();
             return;
+
         } else if (!password.length || password.length < 7) {
             setErrors({ ...errors, password: true });
-            alert("¡Password vacio o demasiado corto!");
+            alert("Password vacio o demasiado corto [de 7 caracteres en adelante]");
             passwordRef.current.focus();
             return;
         }
@@ -48,7 +50,7 @@ const Login = () => {
                     <Row className="mb-2">
                         <h5>¡Bienvenidos a Books Champion!</h5>
                     </Row>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleLogin}>
                         <FormGroup className="mb-4">
                             <Form.Control
                                 type="email"
