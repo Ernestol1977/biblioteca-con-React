@@ -13,23 +13,18 @@ const NewBook = ({ onBookAdded }) => {
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
-
   const handleAuthorChange = (event) => {
     setAuthor(event.target.value)
   };
-
   const handleRatingChange = (event) => {
     setRating(event.target.value)
   };
-
   const handlePageCountChange = (event) => {
     setPageCount(event.target.value)
   };
-
   const handleImageUrlChange = (event) => {
     setImageUrl(event.target.value)
   };
-
   const handleAvailableChange = (event) => {
     setAvailable(event.target.checked)
   };
@@ -45,8 +40,10 @@ const NewBook = ({ onBookAdded }) => {
       imageUrl,
       available
     };
-    // Invocaciones
+
+    // Invocacion al nuevo libro
     onBookAdded(bookData);
+
     // Se limpia una vez que se ha enviado
     setTitle('');
     setAuthor('');
@@ -64,13 +61,21 @@ const NewBook = ({ onBookAdded }) => {
             <Col md={6}>
               <Form.Group className="mb-3" controlId="title">
                 <Form.Label>Título</Form.Label>
-                <Form.Control type="text" placeholder="Ingresar título" onChange={handleTitleChange} value={title} />
+                <Form.Control
+                  type="text"
+                  placeholder="Ingresar título"
+                  onChange={handleTitleChange}
+                  value={title} />
               </Form.Group>
             </Col>
             <Col md={6}>
               <Form.Group className="mb-3" controlId="author">
                 <Form.Label>Autor</Form.Label>
-                <Form.Control type="text" placeholder="Ingresar autor" onChange={handleAuthorChange} value={author} />
+                <Form.Control
+                  type="text"
+                  placeholder="Ingresar autor"
+                  onChange={handleAuthorChange}
+                  value={author} />
               </Form.Group>
             </Col>
           </Row>

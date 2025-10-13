@@ -9,6 +9,7 @@ const BookSearch = ({ onSearch }) => {
   return (
     <Form.Group className="mb-3" controlId="searchBook">
       <Form.Control
+        className="border-success"
         type="text"
         placeholder="Buscar libro..."
         onChange={handleSearchBook}

@@ -1,0 +1,27 @@
+meta {
+  name: Update Book
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/books/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 1
+}
+
+body:json {
+  {
+      "title": "Harry Potter 1",
+      "author": "J.K. Rowling",
+      "available": false
+  }  
+}
+
+settings {
+  encodeUrl: true
+}

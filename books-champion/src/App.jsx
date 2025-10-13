@@ -3,7 +3,7 @@ import Books from './components/library/books/Books';
 import NewBook from './components/library/newBook/NewBook';
 import Login from './components/auth/Login';
 
-function App() {
+const App = () => {
 
   const books = [
     {
@@ -14,7 +14,7 @@ function App() {
       pageCount: 800,
       imageUrl: "https://acdn-us.mitiendanube.com/stores/001/542/126/products/9789878000107-b82c22cfb174dca93016944484618644-1024-1024.jpg",
       available: true,
-      summary: "Un grupo de héroes emprende un viaje épico para destruir un anillo de poder maligno que amenaza con dominar la Tierra Media.",
+      summary: "Un niño huérfano descubre que es un mago y comienza su educación en Hogwarts, enfrentándose a sus primeros desafíos mágicos.",
     },
     {
       id:2,
@@ -51,23 +51,26 @@ function App() {
   const [bookList, setBookList] = useState(books);
 
   const handleBookAdded = (enteredBook) => {
-    const bookData2 = {
+    const newBookData = {
       id: Math.round(Math.random() * 100),
       ...enteredBook
     };
-    console.log(bookData2);
+    console.log(newBookData);
 
-    setBookList(prevBookList => [bookData2, ...prevBookList])
+    setBookList(prevBookList => [newBookData, ...prevBookList])
+  }; // generalmente se realiza de manera inversa
+
+  const handleBookDeleted = (id) => {
+    setBookList((prev) => prev.filter((book) => book.id !== id));
   };
 
-    
   return (
     <div className='d-flex flex-column align-items-center'>
-      {<Login />}
+      {<Login />} 
       <h2>Books Champion App</h2>
       <p>Quiero leer libros!</p>
       <NewBook onBookAdded={handleBookAdded} />
-      <Books books={bookList} />
+      <Books books={bookList} onDeleteBook={handleBookDeleted} />
     </div>
   )
 }
